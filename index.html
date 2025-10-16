@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major Keys Reference</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Major Keys Reference</h1>
+        
+        <div class="key-selector">
+            <label for="keySelect">Select a Major Key:</label>
+            <select id="keySelect">
+                <option value="">-- Choose a Key --</option>
+                <option value="C">C Major</option>
+                <option value="G">G Major</option>
+                <option value="D">D Major</option>
+                <option value="A">A Major</option>
+                <option value="E">E Major</option>
+                <option value="B">B Major</option>
+                <option value="Gb">F♯/G♭ Major</option>
+                <option value="Db">D♭ Major</option>
+                <option value="Ab">A♭ Major</option>
+                <option value="Eb">E♭ Major</option>
+                <option value="Bb">B♭ Major</option>
+                <option value="F">F Major</option>
+            </select>
+        </div>
+
+        <div id="keyInfo" class="key-info hidden">
+            <div class="info-section">
+                <h2 id="keyTitle">Key Information</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card scale-notes-card">
+                        <h3>Scale Notes</h3>
+                        <div id="scaleNotes" class="scale-notes"></div>
+                        <div class="key-signature-info">
+                            <span id="keySignature" class="key-signature"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card chords-card">
+                        <h3>7th Chords</h3>
+                        <div id="seventhChords" class="seventh-chords"></div>
+                    </div>
+                    
+                    <div class="info-card modes-card">
+                        <h3>Modes</h3>
+                        <div id="modes" class="modes"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mode-finder-section">
+            <div class="mode-finder">
+                <label for="modeSelect">Find Parent Key of Mode:</label>
+                <div class="mode-inputs">
+                    <select id="noteSelect">
+                        <option value="">Note</option>
+                        <option value="C">C</option>
+                        <option value="C#">C♯/D♭</option>
+                        <option value="D">D</option>
+                        <option value="D#">D♯/E♭</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="F#">F♯/G♭</option>
+                        <option value="G">G</option>
+                        <option value="G#">G♯/A♭</option>
+                        <option value="A">A</option>
+                        <option value="A#">A♯/B♭</option>
+                        <option value="B">B</option>
+                    </select>
+                    
+                    <select id="modeSelect">
+                        <option value="">Mode</option>
+                        <option value="Ionian">Ionian (Major)</option>
+                        <option value="Dorian">Dorian</option>
+                        <option value="Phrygian">Phrygian</option>
+                        <option value="Lydian">Lydian</option>
+                        <option value="Mixolydian">Mixolydian</option>
+                        <option value="Aeolian">Aeolian (Natural Minor)</option>
+                        <option value="Locrian">Locrian</option>
+                    </select>
+                </div>
+                <div id="modeResult" class="mode-result hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "major-keys-reference",
+  "version": "1.0.0",
+  "description": "An interactive web application for exploring the 12 major keys and their musical properties",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve . --single",
+    "serve": "npx serve . --listen 3000",
+    "build": "echo 'No build step required for static site'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "music",
+    "theory",
+    "major-keys",
+    "scales",
+    "chords",
+    "interactive",
+    "web-app"
+  ],
+  "author": "Jimmy",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimmy/keys.git"
+  },
+  "homepage": "https://github.com/jimmy/keys#readme",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
