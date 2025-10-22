@@ -7,7 +7,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #3f3f3f 0%, #2b2b2b 100%);
     min-height: 100vh;
     padding: 20px;
 }
@@ -15,15 +15,15 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: #383838;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
 h1 {
-    background: linear-gradient(135deg, #2c3e50, #34495e);
-    color: white;
+    background: linear-gradient(135deg, #7f9f7f, #9fbc9f);
+    color: #dcdccc;
     text-align: center;
     padding: 30px;
     font-size: 2.5rem;
@@ -34,8 +34,8 @@ h1 {
 .key-selector {
     padding: 30px;
     text-align: center;
-    background: #f8f9fa;
-    border-bottom: 2px solid #e9ecef;
+    background: #404040;
+    border-bottom: 2px solid #5a5a5a;
 }
 
 .key-selector label {
@@ -43,21 +43,21 @@ h1 {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: #dcdccc;
 }
 
 .mode-finder-section {
-    background: #f8f9fa;
-    border-top: 2px solid #e9ecef;
+    background: #404040;
+    border-top: 2px solid #5a5a5a;
     padding: 30px;
 }
 
 .mode-finder {
     text-align: center;
     padding: 20px;
-    background: white;
+    background: #4f4f4f;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -67,7 +67,7 @@ h1 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: #dcdccc;
 }
 
 .mode-inputs {
@@ -80,9 +80,10 @@ h1 {
 #noteSelect, #modeSelect {
     padding: 10px 15px;
     font-size: 1rem;
-    border: 2px solid #ddd;
+    border: 2px solid #5a5a5a;
     border-radius: 8px;
-    background: white;
+    background: #3f3f3f;
+    color: #dcdccc;
     min-width: 140px;
     cursor: pointer;
     transition: border-color 0.3s ease;
@@ -90,19 +91,19 @@ h1 {
 
 #noteSelect:focus, #modeSelect:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #7f9f7f;
+    box-shadow: 0 0 0 3px rgba(127, 159, 127, 0.3);
 }
 
 .mode-result {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+    background: linear-gradient(135deg, #7f9f7f, #9fbc9f);
+    color: #dcdccc;
     padding: 20px;
     border-radius: 12px;
     font-size: 1.2rem;
     font-weight: 600;
     margin-top: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
 }
 
@@ -134,20 +135,21 @@ h1 {
 
 .mode-alterations {
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(220, 220, 204, 0.2);
     padding: 8px 12px;
     border-radius: 8px;
     margin-top: 10px;
     font-weight: 600;
-    border-left: 4px solid rgba(255, 255, 255, 0.5);
+    border-left: 4px solid rgba(220, 220, 204, 0.5);
 }
 
 #keySelect {
     padding: 12px 20px;
     font-size: 1.1rem;
-    border: 2px solid #ddd;
+    border: 2px solid #5a5a5a;
     border-radius: 8px;
-    background: white;
+    background: #3f3f3f;
+    color: #dcdccc;
     min-width: 200px;
     cursor: pointer;
     transition: border-color 0.3s ease;
@@ -155,8 +157,8 @@ h1 {
 
 #keySelect:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #7f9f7f;
+    box-shadow: 0 0 0 3px rgba(127, 159, 127, 0.3);
 }
 
 .key-info {
@@ -171,7 +173,7 @@ h1 {
 #keyTitle {
     text-align: center;
     font-size: 2rem;
-    color: #2c3e50;
+    color: #dcdccc;
     margin-bottom: 30px;
     font-weight: 300;
 }
@@ -185,24 +187,24 @@ h1 {
 }
 
 .info-card {
-    background: #f8f9fa;
+    background: #4f4f4f;
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
 .info-card h3 {
-    color: #2c3e50;
+    color: #dcdccc;
     margin-bottom: 20px;
     font-size: 1.5rem;
     text-align: center;
-    border-bottom: 3px solid #667eea;
+    border-bottom: 3px solid #7f9f7f;
     padding-bottom: 10px;
 }
 
@@ -216,13 +218,13 @@ h1 {
 }
 
 .note {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+    background: linear-gradient(135deg, #7f9f7f, #9fbc9f);
+    color: #dcdccc;
     padding: 12px 18px;
     border-radius: 25px;
     font-weight: 700;
     font-size: 1.3rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     min-width: 50px;
     text-align: center;
 }
@@ -235,8 +237,8 @@ h1 {
 .key-signature {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #555;
-    background: #e9ecef;
+    color: #dcdccc;
+    background: #5a5a5a;
     padding: 8px 16px;
     border-radius: 20px;
 }
@@ -249,24 +251,25 @@ h1 {
 }
 
 .chord-item {
-    background: #fff;
+    background: #5a5a5a;
     border-radius: 10px;
     padding: 15px 8px;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .chord-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    background: #6a6a6a;
 }
 
 .chord-note {
     display: block;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #667eea;
+    color: #7f9f7f;
     margin-bottom: 8px;
 }
 
@@ -274,8 +277,8 @@ h1 {
     display: block;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #2c3e50;
-    background: #f1f3f4;
+    color: #dcdccc;
+    background: #404040;
     padding: 4px 8px;
     border-radius: 12px;
 }
@@ -288,24 +291,25 @@ h1 {
 }
 
 .mode-item {
-    background: #fff;
+    background: #5a5a5a;
     border-radius: 10px;
     padding: 15px 8px;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .mode-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    background: #6a6a6a;
 }
 
 .mode-note {
     display: block;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #764ba2;
+    color: #9fbc9f;
     margin-bottom: 8px;
 }
 
@@ -313,8 +317,8 @@ h1 {
     display: block;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #2c3e50;
-    background: #f8f4ff;
+    color: #dcdccc;
+    background: #404040;
     padding: 4px 6px;
     border-radius: 12px;
 }
