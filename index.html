@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Major Keys Reference</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Major Keys Reference</h1>
-        
+
         <div class="key-selector">
             <label for="keySelect">Select a Major Key:</label>
             <select id="keySelect">
@@ -32,7 +34,7 @@
         <div id="keyInfo" class="key-info hidden">
             <div class="info-section">
                 <h2 id="keyTitle">Key Information</h2>
-                
+
                 <div class="info-grid">
                     <div class="info-card scale-notes-card">
                         <h3>Scale Notes</h3>
@@ -41,12 +43,12 @@
                             <span id="keySignature" class="key-signature"></span>
                         </div>
                     </div>
-                    
+
                     <div class="info-card chords-card">
                         <h3>7th Chords</h3>
                         <div id="seventhChords" class="seventh-chords"></div>
                     </div>
-                    
+
                     <div class="info-card modes-card">
                         <h3>Modes</h3>
                         <div id="modes" class="modes"></div>
@@ -56,6 +58,49 @@
         </div>
     </div>
 
+    <!-- Modal for Chord Details -->
+    <div id="chordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="chordModal">&times;</span>
+            <h2 id="chordModalTitle">Chord Details</h2>
+            <div class="modal-body">
+                <div class="chord-details">
+                    <div class="chord-notes-section">
+                        <h3>Notes</h3>
+                        <div id="chordNotesDisplay" class="chord-notes-display"></div>
+                    </div>
+                    <div class="chord-intervals-section">
+                        <h3>Scale Degrees (Roman Numerals)</h3>
+                        <div id="chordIntervalsDisplay" class="chord-intervals-display"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Mode Details -->
+    <div id="modeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="modeModal">&times;</span>
+            <h2 id="modeModalTitle">Mode Details</h2>
+            <div class="modal-body">
+                <div class="mode-details">
+                    <div class="mode-notes-section">
+                        <h3>Mode Notes</h3>
+                        <div id="modeNotesDisplay" class="mode-notes-display"></div>
+                    </div>
+                    <div class="mode-degrees-section">
+                        <h3>Mode Formula</h3>
+                        <div id="modeDegreesDisplay" class="mode-degrees-display"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
