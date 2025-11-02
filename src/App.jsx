@@ -81,153 +81,194 @@ const App = () => {
   const modeModalContent = useMemo(() => modeModal, [modeModal]);
 
   return (
-    <div className="container">
-      <h1>Major Keys Reference</h1>
+    <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900/80 shadow-card backdrop-blur-xl">
+      <header className="bg-forest-gradient px-6 py-10 text-center text-white md:px-12 md:py-12">
+        <h1 className="text-3xl font-semibold tracking-[0.35em] uppercase md:text-4xl">
+          Major Keys Reference
+        </h1>
+        <p className="mt-4 text-base font-medium tracking-wide text-white/80 md:text-lg">
+          Explore every major key, its seventh chords, and modal colors.
+        </p>
+      </header>
 
-      <div className="key-selector">
-        <label htmlFor="keySelect">Select a Major Key:</label>
-        <select
-          id="keySelect"
-          value={selectedKey}
-          onChange={handleKeyChange}
-          aria-label="Select a major key"
+      <section className="space-y-5 border-b border-white/10 bg-zinc-900/60 px-6 py-8 text-center md:px-12 md:py-10">
+        <label
+          htmlFor="keySelect"
+          className="block text-lg font-semibold tracking-wide text-zinc-100 md:text-xl"
         >
-          <option value="">-- Choose a Key --</option>
-          {keyOrder.map((key) => (
-            <option key={key} value={key}>
-              {keyData[key].name}
-            </option>
-          ))}
-        </select>
-      </div>
+          Select a Major Key
+        </label>
+        <div className="flex justify-center">
+          <select
+            id="keySelect"
+            value={selectedKey}
+            onChange={handleKeyChange}
+            aria-label="Select a major key"
+            className="w-full max-w-xs rounded-xl border border-forest-500/40 bg-zinc-950/70 px-4 py-3 text-base text-zinc-100 transition focus:outline-none focus:ring-2 focus:ring-forest-300 focus:ring-offset-2 focus:ring-offset-zinc-900"
+          >
+            <option value="">-- Choose a Key --</option>
+            {keyOrder.map((key) => (
+              <option key={key} value={key}>
+                {keyData[key].name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </section>
 
       {keyInfo && (
-        <div id="keyInfo" className="key-info" ref={keyInfoRef}>
-          <div className="info-section">
-            <h2 id="keyTitle">{keyInfo.name}</h2>
+        <section
+          id="keyInfo"
+          className="space-y-12 px-6 py-10 md:px-12"
+          ref={keyInfoRef}
+        >
+          <div className="space-y-8">
+            <h2
+              id="keyTitle"
+              className="text-center text-3xl font-semibold text-white md:text-4xl"
+            >
+              {keyInfo.name}
+            </h2>
 
-            <div className="info-grid">
-              <div className="info-card scale-notes-card">
-                <h3>Scale Notes</h3>
-                <div id="scaleNotes" className="scale-notes">
+            <div className="grid gap-6 lg:grid-cols-3">
+              <article className="space-y-6 rounded-3xl border border-white/10 bg-zinc-900/70 p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-glow-green lg:p-8">
+                <h3 className="text-center text-2xl font-semibold tracking-wide text-forest-100">
+                  Scale Notes
+                </h3>
+                <div
+                  id="scaleNotes"
+                  className="flex flex-wrap justify-center gap-3"
+                >
                   {keyInfo.notes.map((note) => (
-                    <span key={note} className="note">
+                    <span key={note} className="tag-pill text-xl">
                       {note}
                     </span>
                   ))}
                 </div>
-                <div className="key-signature-info">
-                  <span id="keySignature" className="key-signature">
+                <div className="flex justify-center">
+                  <span
+                    id="keySignature"
+                    className="tag-pill-muted text-sm font-semibold tracking-wide"
+                  >
                     {keyInfo.keySignature}
                   </span>
                 </div>
-              </div>
+              </article>
 
-              <div className="info-card chords-card">
-                <h3>7th Chords</h3>
-                <div id="seventhChords" className="seventh-chords">
+              <article className="space-y-6 rounded-3xl border border-white/10 bg-zinc-900/70 p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-glow-green lg:p-8">
+                <h3 className="text-center text-2xl font-semibold tracking-wide text-forest-100">
+                  7th Chords
+                </h3>
+                <div id="seventhChords" className="grid gap-4">
                   {keyInfo.seventhChords.map((chord, index) => (
-                    <div
+                    <button
                       key={chord}
-                      className="chord-item"
+                      type="button"
                       onClick={() => handleChordClick(chord, index)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          handleChordClick(chord, index);
-                        }
-                      }}
                       aria-label={`View details for ${chord}`}
+                      className="group flex items-center justify-between gap-4 rounded-2xl border border-zinc-700/60 bg-zinc-900/70 px-5 py-4 text-left transition duration-200 hover:border-forest-300 hover:shadow-glow-green focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
                     >
-                      <span className="chord-note">{keyInfo.notes[index]}</span>
-                      <span className="chord-name">{chord}</span>
-                    </div>
+                      <span className="tag-pill-muted text-base font-semibold transition group-hover:border-forest-300/80 group-hover:text-forest-100">
+                        {keyInfo.notes[index]}
+                      </span>
+                      <span className="text-lg font-semibold text-zinc-100 md:text-xl">
+                        {chord}
+                      </span>
+                    </button>
                   ))}
                 </div>
-              </div>
+              </article>
 
-              <div className="info-card modes-card">
-                <h3>Modes</h3>
-                <div id="modes" className="modes">
+              <article className="space-y-6 rounded-3xl border border-white/10 bg-zinc-900/70 p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-glow-green lg:p-8">
+                <h3 className="text-center text-2xl font-semibold tracking-wide text-forest-100">
+                  Modes
+                </h3>
+                <div id="modes" className="grid gap-4">
                   {keyInfo.modes.map((mode, index) => (
-                    <div
+                    <button
                       key={mode}
-                      className="mode-item"
+                      type="button"
                       onClick={() => handleModeClick(mode, index)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          handleModeClick(mode, index);
-                        }
-                      }}
                       aria-label={`View details for ${mode} mode`}
+                      className="group flex items-center justify-between gap-4 rounded-2xl border border-forest-500/30 bg-forest-400/10 px-5 py-4 text-left transition duration-200 hover:border-forest-300 hover:bg-forest-400/20 hover:shadow-glow-green focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
                     >
-                      <span className="mode-note">{keyInfo.notes[index]}</span>
-                      <span className="mode-name">{mode}</span>
-                    </div>
+                      <span className="tag-pill text-base font-semibold text-white">
+                        {keyInfo.notes[index]}
+                      </span>
+                      <span className="text-lg font-semibold text-zinc-100 md:text-xl">
+                        {mode}
+                      </span>
+                    </button>
                   ))}
                 </div>
-              </div>
+              </article>
             </div>
           </div>
-        </div>
+        </section>
       )}
 
       {chordModalContent && (
         <div
-          className="modal show"
+          className="modal-backdrop"
           role="dialog"
           aria-modal="true"
           aria-labelledby="chordModalTitle"
           onClick={closeModals}
         >
           <div
-            className="modal-content"
+            className="modal-panel"
             onClick={(event) => event.stopPropagation()}
           >
-            <span className="close" onClick={closeModals} aria-label="Close">
-              &times;
-            </span>
-            <h2 id="chordModalTitle">{chordModalContent.chordName}</h2>
-            <div className="modal-body">
-              <div className="chord-details">
-                <div className="chord-notes-section">
-                  <h3>Notes</h3>
-                  <div
-                    id="chordNotesDisplay"
-                    className="chord-notes-display"
-                  >
-                    {chordModalContent.notes.map((note) => (
-                      <div key={note} className="chord-note-item">
-                        {note}
-                      </div>
-                    ))}
-                  </div>
+            <button
+              type="button"
+              className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-zinc-950/80 text-base font-semibold text-zinc-200 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+              onClick={closeModals}
+            >
+              <span className="sr-only">Close</span>
+              X
+            </button>
+            <h2
+              id="chordModalTitle"
+              className="text-center text-3xl font-semibold text-white md:text-4xl"
+            >
+              {chordModalContent.chordName}
+            </h2>
+            <div className="mt-6 grid gap-6 md:grid-cols-2">
+              <div className="space-y-4">
+                <h3 className="text-center text-xl font-semibold text-forest-100">
+                  Notes
+                </h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {chordModalContent.notes.map((note) => (
+                    <span key={note} className="tag-pill text-lg">
+                      {note}
+                    </span>
+                  ))}
                 </div>
-                <div className="chord-intervals-section">
-                  <h3>Scale Degrees (Roman Numerals)</h3>
-                  <div
-                    id="chordIntervalsDisplay"
-                    className="chord-intervals-display"
-                  >
-                    {chordModalContent.romanNumerals.map((interval, idx) => (
-                      <div key={`${interval}-${idx}`} className="chord-interval-item">
-                        {interval}
-                      </div>
-                    ))}
-                  </div>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-center text-xl font-semibold text-forest-100">
+                  Scale Degrees
+                </h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {chordModalContent.romanNumerals.map((interval, idx) => (
+                    <span
+                      key={`${interval}-${idx}`}
+                      className="tag-pill-muted text-base font-semibold"
+                    >
+                      {interval}
+                    </span>
+                  ))}
                 </div>
-                <div className="chord-info-section">
-                  <h3>Chord Quality</h3>
-                  <div className="chord-info-display">
-                    <div className="chord-info-item">
-                      {chordModalContent.type}
-                    </div>
-                  </div>
+              </div>
+              <div className="space-y-4 md:col-span-2">
+                <h3 className="text-center text-xl font-semibold text-forest-100">
+                  Chord Quality
+                </h3>
+                <div className="flex justify-center">
+                  <span className="tag-pill-muted text-base font-semibold">
+                    {chordModalContent.type}
+                  </span>
                 </div>
               </div>
             </div>
@@ -237,61 +278,90 @@ const App = () => {
 
       {modeModalContent && (
         <div
-          className="modal show"
+          className="modal-backdrop"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modeModalTitle"
           onClick={closeModals}
         >
           <div
-            className="modal-content"
+            className="modal-panel"
             onClick={(event) => event.stopPropagation()}
           >
-            <span className="close" onClick={closeModals} aria-label="Close">
-              &times;
-            </span>
-            <h2 id="modeModalTitle">{modeModalContent.title}</h2>
-            <div className="modal-body">
-              <div className="mode-details">
-                <div className="mode-notes-section">
-                  <h3>Mode Notes</h3>
-                  <div id="modeNotesDisplay" className="mode-notes-display">
-                    {modeModalContent.notes.map((note) => (
-                      <div key={note} className="mode-note-item">
-                        {note}
-                      </div>
-                    ))}
-                  </div>
+            <button
+              type="button"
+              className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-zinc-950/80 text-base font-semibold text-zinc-200 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-forest-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+              onClick={closeModals}
+            >
+              <span className="sr-only">Close</span>
+              X
+            </button>
+            <h2
+              id="modeModalTitle"
+              className="text-center text-3xl font-semibold text-white md:text-4xl"
+            >
+              {modeModalContent.title}
+            </h2>
+            <div className="mt-6 grid gap-6 md:grid-cols-2">
+              <div className="space-y-4">
+                <h3 className="text-center text-xl font-semibold text-forest-100">
+                  Mode Notes
+                </h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {modeModalContent.notes.map((note) => (
+                    <span key={note} className="tag-pill text-lg">
+                      {note}
+                    </span>
+                  ))}
                 </div>
-                <div className="mode-degrees-section">
-                  <h3>Mode Formula</h3>
-                  <div id="modeDegreesDisplay" className="mode-degrees-display">
-                    {modeModalContent.formula.map((degree, idx) => (
-                      <div
-                        key={`${degree}-${idx}`}
-                        className={`mode-degree-item${
-                          degree.includes("♭") || degree.includes("♯")
-                            ? " altered-degree"
-                            : ""
-                        }`}
-                      >
-                        {degree}
-                      </div>
-                    ))}
-                  </div>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-center text-xl font-semibold text-forest-100">
+                  Mode Formula
+                </h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {modeModalContent.formula.map((degree, idx) => (
+                    <span
+                      key={`${degree}-${idx}`}
+                      className={
+                        degree.includes("♭") || degree.includes("♯")
+                          ? "tag-pill-amber text-base font-semibold"
+                          : "tag-pill-muted text-base font-semibold"
+                      }
+                    >
+                      {degree}
+                    </span>
+                  ))}
                 </div>
-                <div className="mode-info-section">
-                  <h3>Overview</h3>
-                  <div className="mode-info-display">
-                    <div className="mode-info-item">
+              </div>
+              <div className="space-y-4 md:col-span-2">
+                <h3 className="text-center text-xl font-semibold text-forest-100">
+                  Overview
+                </h3>
+                <div className="space-y-3 text-sm leading-relaxed text-zinc-200">
+                  <div className="rounded-2xl border border-white/10 bg-zinc-900/70 px-4 py-3">
+                    <span className="block text-xs font-semibold uppercase tracking-[0.3em] text-forest-200">
+                      Character
+                    </span>
+                    <p className="mt-2 text-base text-zinc-100">
                       {modeModalContent.character}
-                    </div>
-                    <div className="mode-info-item">
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-zinc-900/70 px-4 py-3">
+                    <span className="block text-xs font-semibold uppercase tracking-[0.3em] text-forest-200">
+                      Alterations
+                    </span>
+                    <p className="mt-2 text-base text-zinc-100">
                       {modeModalContent.alterations}
-                    </div>
-                    <div className="mode-info-item">
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-zinc-900/70 px-4 py-3">
+                    <span className="block text-xs font-semibold uppercase tracking-[0.3em] text-forest-200">
+                      Common Use
+                    </span>
+                    <p className="mt-2 text-base text-zinc-100">
                       {modeModalContent.commonUse}
-                    </div>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -304,4 +374,3 @@ const App = () => {
 };
 
 export default App;
-
