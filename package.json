@@ -2,12 +2,10 @@
   "name": "major-keys-reference",
   "version": "1.0.0",
   "description": "An interactive web application for exploring the 12 major keys and their musical properties",
-  "main": "index.html",
   "scripts": {
-    "start": "npx serve .",
-    "dev": "npx serve . --single",
-    "serve": "npx serve . --listen 3000",
-    "build": "echo 'No build step required for static site'",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "echo 'No tests specified'"
   },
   "keywords": [
@@ -21,8 +19,13 @@
   ],
   "author": "Jimmy",
   "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
-    "serve": "^14.2.1"
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.2.0"
   },
   "engines": {
     "node": ">=14.0.0",

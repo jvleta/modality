@@ -1,6 +1,6 @@
 # Major Keys Reference
 
-An interactive web application for exploring the 12 major keys and their musical properties including scale notes, roman numerals, chord qualities, and more.
+An interactive React application for exploring the 12 major keys and their musical properties including scale notes, roman numerals, chord qualities, and more. The app is bundled with Vite for a fast development experience.
 
 ## Features
 
@@ -26,38 +26,35 @@ An interactive web application for exploring the 12 major keys and their musical
 
 ### Development Server
 
-Start the local development server using any of these npm scripts:
+Start the Vite development server:
 
 ```bash
-# Start server on default port (usually 3000 or 5000)
-npm start
-
-# Start server in development mode with single-page app support
 npm run dev
-
-# Start server on specific port (3000)
-npm run serve
 ```
 
-After running any of these commands, open your browser and navigate to the provided URL (typically `http://localhost:3000` or `http://localhost:5000`).
+After running the command, open your browser and navigate to the provided URL (typically `http://localhost:5173`).
 
 ### Available Scripts
 
-- **`npm start`** - Starts the local development server
-- **`npm run dev`** - Starts the server with single-page app routing support
-- **`npm run serve`** - Starts the server on port 3000 specifically
-- **`npm run build`** - No build step required (static site)
+- **`npm run dev`** - Starts the development server with hot module replacement
+- **`npm run build`** - Creates an optimized production build
+- **`npm run preview`** - Serves the production build locally
 - **`npm test`** - No tests configured yet
 
 ## Project Structure
 
 ```
 keys/
-├── index.html          # Main HTML file
-├── style.css           # Styling and responsive design
-├── script.js           # Interactive JavaScript functionality
+├── index.html          # Vite entry HTML
+├── src/
+│   ├── App.jsx         # Root React component
+│   ├── data.js         # Musical data and helpers
+│   ├── index.css       # Styling and responsive design
+│   └── main.jsx        # React entry point
 ├── package.json        # npm configuration and scripts
-└── README.md           # This file
+├── package-lock.json   # Dependency lockfile
+├── vite.config.js      # Vite configuration
+└── README.md           # Project documentation
 ```
 
 ## Usage
@@ -84,10 +81,10 @@ For each major key, the application displays:
 
 ## Technology Stack
 
-- **HTML5** - Semantic markup and structure
+- **React 18** - Component-based UI
+- **Vite** - Lightweight dev server and bundler
 - **CSS3** - Modern styling with flexbox, grid, and gradients
-- **Vanilla JavaScript** - Interactive functionality and DOM manipulation
-- **Node.js & npm** - Development tooling and local server
+- **Node.js & npm** - Development tooling and scripts
 
 ## Browser Support
 
