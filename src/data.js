@@ -265,21 +265,29 @@ export const modeCharacteristics = {
 };
 
 export function generateModeNotes(parentKeyNotes, modeIndex) {
-  const modeNotes = [];
-  for (let i = 0; i < 7; i++) {
+  const noteNumbers = Array.from({ length: 7 }, (_, i) => i);
+  const modeNotes = noteNumbers.map((i) => {
     const noteIndex = (modeIndex + i) % 7;
-    modeNotes.push(parentKeyNotes[noteIndex]);
-  }
+    console.log("noteIndex:", noteIndex);
+    return parentKeyNotes[noteIndex];
+  });
   return modeNotes;
 }
 
-export function getChordDetails(chordName, keyNotes, scalePosition) {
-  let chordType = "maj7";
-  if (chordName.includes("m7♭5")) chordType = "m7b5";
-  else if (chordName.includes("m7")) chordType = "m7";
-  else if (chordName.endsWith("7") && !chordName.includes("maj"))
-    chordType = "7";
+function getChordType(chordName) {
+  if (chordName.includes("m7♭5")) {
+    return "m7b5";
+  } else if (chordName.includes("m7")) {
+    return "m7";
+  } else if (chordName.endsWith("7") && !chordName.includes("maj")) {
+    return "7";
+  }
+  return "maj7";
+}
 
+export function getChordDetails(chordName, keyNotes, scalePosition) {
+  const chordType = getChordType(chordName);
+  
   const structure = chordStructures[chordType];
   const chordNotes = [];
   const romanNumerals = [];
