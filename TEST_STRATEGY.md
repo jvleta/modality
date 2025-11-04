@@ -42,7 +42,7 @@
 - [ ] Focus returns to the triggering element once a modal closes.
 
 ### Integration / End-to-End (Playwright or Cypress)
-- [ ] Full flow: select key → verify updated content → open/close chord modal → open/close mode modal.
+- [x] Full flow: select key → verify updated content → open/close chord modal → open/close mode modal.
 - [ ] Keyboard-only navigation of dropdown and modals (Tab/Shift+Tab cycling, Enter/Space activation).
 - [ ] Responsive checks at mobile, tablet, and desktop breakpoints for layout of cards and modal.
 - [ ] Regression flow ensuring modals do not stack and body scroll is restored after closure.
