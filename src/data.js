@@ -268,7 +268,6 @@ export function generateModeNotes(parentKeyNotes, modeIndex) {
   const noteNumbers = Array.from({ length: 7 }, (_, i) => i);
   const modeNotes = noteNumbers.map((i) => {
     const noteIndex = (modeIndex + i) % 7;
-    console.log("noteIndex:", noteIndex);
     return parentKeyNotes[noteIndex];
   });
   return modeNotes;
