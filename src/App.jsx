@@ -8,7 +8,7 @@ import {
 } from "./data";
 
 const App = () => {
-  const [selectedKey, setSelectedKey] = useState("");
+  const [selectedKey, setSelectedKey] = useState(keyOrder[0]);
   const [chordModal, setChordModal] = useState(null);
   const [modeModal, setModeModal] = useState(null);
   const keyInfoRef = useRef(null);
